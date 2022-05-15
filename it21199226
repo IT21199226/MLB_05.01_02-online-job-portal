@@ -1,0 +1,86 @@
+
+#include<iostream>
+#include<cstring>
+
+using namespace std;
+
+// Class declarration
+class Computer	{ 
+	private:
+		int computerId;
+		string computerType;
+		string computerBrand;
+		float computerPrice;
+		
+	public:
+		void setComputerDetails(int c_Id , string c_Type , string c_Brand,float c_Price );
+		void displayComputerDetails();
+		void setComputerPrice(float c_Price);
+		
+	};
+
+// Class methods definition	
+void Computer::setComputerDetails(int c_Id , string c_Type , string c_Brand , float c_Price )
+{
+	computerId = c_Id;
+	computerType = c_Type;
+	computerBrand = c_Brand;
+	computerPrice = c_Price;
+}
+void Computer::displayComputerDetails()
+{
+	cout<<"Competer ID = " << computerId << endl;
+	cout<<"Competer Type = " << computerType << endl;
+	cout<<"Competer Brand = " <<computerBrand << endl;
+	cout<<"Competer Price = " << computerPrice << endl;
+	
+}
+void Computer::setComputerPrice(float c_Price)
+{
+	computerPrice = c_Price;
+}
+
+
+//main program
+int main()
+{
+	//Dynamic Memory allocation
+	Computer *c1, *c2, *c3;
+	
+	c1 = new Computer();
+	c2 = new Computer();
+	c3 = new Computer();
+	
+	float price[3] = {0};
+	
+	c1 -> setComputerDetails( 1, "Laptop", "Dell", 100000.00 );
+	c2 -> setComputerDetails( 2, "Laptop", "Asus", 95000.00 );
+	c3 -> setComputerDetails( 3, "Desktop", "HP", 98000.00 );
+	
+	cout << "Input new computer price of computer 1 :- ";
+	cin >> price[0]; 
+	
+	c1 -> setComputerPrice( price[0] );
+	
+	cout << "Input new computer price of computer 2 :- ";
+	cin >> price[1]; 
+	
+	c2 -> setComputerPrice( price[1] );
+	
+	cout << "Input new computer price of computer 3 :- ";
+	cin >> price[2]; 
+	
+	c3 -> setComputerPrice( price[2] );
+	
+	cout<<endl;
+	
+	c1 -> displayComputerDetails(); 
+	c2 -> displayComputerDetails(); 
+	c3 -> displayComputerDetails(); 
+	
+	delete c1;
+	delete c2;
+	delete c3;
+
+	
+}
